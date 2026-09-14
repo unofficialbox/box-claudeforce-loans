@@ -184,7 +184,7 @@ def term_sheet_markup():
     term(
         "6. Guaranty",
         "Unlimited personal guaranty from each owner of twenty percent or more of the Borrower.",
-        "Borrower proposes a limited guaranty from Jordan Pike and Renata Voss capped at $1,000,000 each, and no guaranty from Harborview Employee Holdings LP.",
+        "Borrower proposes a limited guaranty from Dana Whitfield and Renata Voss capped at $1,000,000 each, and no guaranty from Harborview Employee Holdings LP.",
     )
     doc.add_heading("8. Financial covenants", level=2)
     set_font(
