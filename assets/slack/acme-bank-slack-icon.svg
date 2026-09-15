@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="2000" viewBox="0 0 2000 2000" role="img" aria-labelledby="title desc">
+  <title id="title">Acme Bank</title>
+  <desc id="desc">Acme Bank Slack app icon: the Borrower Portal brand mark, an amber-ringed evergreen circle with an AB serif monogram, full bleed on the portal rail's deep evergreen. Colours are the portal tokens: #0A332E, #0F4C45, #C9871A.</desc>
+  <!-- Source for assets/slack/acme-bank-slack-icon.png. The PNG was rendered with the Gelasio Medium
+       webfont (Georgia-compatible, SIL OFL); rendering this SVG elsewhere falls back to the portal's
+       own serif stack, so re-render from a browser with Gelasio installed to reproduce the PNG exactly. -->
+  <defs>
+    <!-- Ground: the rail's deep evergreen, lifted toward the primary green behind the mark. -->
+    <radialGradient id="ground" cx="1000" cy="900" r="1250" gradientUnits="userSpaceOnUse">
+      <stop offset="0"    stop-color="#10514A"/>
+      <stop offset="0.45" stop-color="#0D433D"/>
+      <stop offset="0.82" stop-color="#0A332E"/>
+      <stop offset="1"    stop-color="#0A332E"/>
+    </radialGradient>
+    <!-- Mark face: the primary evergreen with a soft top-left light. -->
+    <radialGradient id="face" cx="760" cy="720" r="1000" gradientUnits="userSpaceOnUse">
+      <stop offset="0"    stop-color="#156057"/>
+      <stop offset="0.55" stop-color="#0F4C45"/>
+      <stop offset="1"    stop-color="#0B3D38"/>
+    </radialGradient>
+    <!-- Amber, warmed at the top so the ring and letters read as gilt rather than flat orange. -->
+    <linearGradient id="amber" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0"    stop-color="#E2A84E"/>
+      <stop offset="0.5"  stop-color="#D3922A"/>
+      <stop offset="1"    stop-color="#C9871A"/>
+    </linearGradient>
+    <linearGradient id="amberRing" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0"    stop-color="#E6AE56"/>
+      <stop offset="0.5"  stop-color="#C9871A"/>
+      <stop offset="1"    stop-color="#B57616"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="28" stdDeviation="44" flood-color="#04201D" flood-opacity="0.5"/>
+    </filter>
+    <filter id="letterShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#04201D" flood-opacity="0.45"/>
+    </filter>
+    <radialGradient id="sheen" cx="1000" cy="520" r="760" gradientUnits="userSpaceOnUse">
+      <stop offset="0"   stop-color="#FFFFFF" stop-opacity="0.075"/>
+      <stop offset="0.6" stop-color="#FFFFFF" stop-opacity="0.025"/>
+      <stop offset="1"   stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="corners"><rect width="2000" height="2000" rx="260" ry="260"/></clipPath>
+    <filter id="tileShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="40" stdDeviation="50" flood-color="#000000" flood-opacity="0.55"/>
+    </filter>
+    <clipPath id="faceClip"><circle cx="1000" cy="1000" r="664"/></clipPath>
+  </defs>
+
+  <!-- Full bleed: Slack rounds the corners and paints its own banner, so the artwork fills the square. -->
+  <!-- Ground -->
+  <rect width="2000" height="2000" fill="url(#ground)"/>
+  <!-- Faint outer halo rings, echoing the ringed mark without competing with it. -->
+  <circle cx="1000" cy="1000" r="850" fill="none" stroke="#C9871A" stroke-width="3" opacity="0.10"/>
+  <circle cx="1000" cy="1000" r="925" fill="none" stroke="#C9871A" stroke-width="2" opacity="0.05"/>
+
+  <!-- Mark -->
+  <g filter="url(#shadow)">
+    <circle cx="1000" cy="1000" r="664" fill="url(#face)"/>
+  </g>
+  <!-- Top-light sheen on the face -->
+  <g clip-path="url(#faceClip)">
+    <circle cx="1000" cy="1000" r="664" fill="url(#sheen)"/>
+  </g>
+  <!-- Ring: one weighted amber line, with a hairline inside, as on the app's brand mark. -->
+  <circle cx="1000" cy="1000" r="664" fill="none" stroke="url(#amberRing)" stroke-width="36"/>
+  <circle cx="1000" cy="1000" r="620" fill="none" stroke="#C9871A" stroke-width="5" opacity="0.55"/>
+
+  <!-- Monogram -->
+  <text x="1000" y="1000" text-anchor="middle" dominant-baseline="central"
+        font-family="Gelasio, 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif"
+        font-weight="500" font-size="640" letter-spacing="0.02em"
+        fill="url(#amber)" filter="url(#letterShadow)" dy="22">AB</text>
+</svg>

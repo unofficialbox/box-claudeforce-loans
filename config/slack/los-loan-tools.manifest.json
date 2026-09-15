@@ -3,7 +3,7 @@
   "display_information": {
     "name": "LOS Loan Tools",
     "description": "Acme Bank loan origination demo: governed Salesforce loan records for Slackbot. Pair with the Box app for documents.",
-    "background_color": "#0b3d91"
+    "background_color": "#0A332E"
   },
   "features": {
     "bot_user": {
