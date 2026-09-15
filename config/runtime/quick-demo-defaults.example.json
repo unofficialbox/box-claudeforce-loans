@@ -1,5 +1,5 @@
 {
-  "_comment": "Copy to config/runtime/quick-demo-defaults.json (gitignored) and fill from the target environment. These are the four Demo Setup bindings the Quick skill presents; paste them into the skill draft's Demo Setup table before publishing, or answer them when Demo Setup runs.",
+  "_comment": "Copy to config/runtime/quick-demo-defaults.json (gitignored) and fill from the target environment. These are the four Demo Setup bindings the Quick skill presents; paste them into the skill draft's Demo Setup table before publishing, or answer them when Demo Setup runs. The Demo Setup card connector (connectors/demo-setup-card) reads the same file through LOS_DEMO_DEFAULTS_FILE.",
   "boxEnterpriseId": "",
   "creditPolicyHubId": "",
   "docgenCommitmentLetterTemplateId": "",

@@ -109,6 +109,10 @@
         "../../output/docgen/los-commitment-letter-template.docx"
       ],
       [
+        "Commitment letter template (Salesforce managed package)",
+        "../../output/docgen/los-commitment-letter-salesforce-template.docx"
+      ],
+      [
         "Editable term sheet",
         "../../output/docgen/harborview-term-sheet-2026-markup.docx"
       ],

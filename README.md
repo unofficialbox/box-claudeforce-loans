@@ -46,6 +46,7 @@ A borrower applies through the Acme Borrower Portal. Documents uploaded to Box a
    ```
 
 3. **Configure Box preview, Loan Copilot, and MCP connectors**  
+   Optional for Claude Desktop: run the [Demo Setup card](connectors/demo-setup-card/README.md), a third connector that confirms the session bindings on a clickable card.  
    See [docs/SETUP.md](docs/SETUP.md) for the admin steps. Presenters connect their own AI client with [docs/CLIENT-SETUP.md](docs/CLIENT-SETUP.md) (no code).
 
 ### Cleanup

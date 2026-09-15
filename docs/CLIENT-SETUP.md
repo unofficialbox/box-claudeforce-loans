@@ -50,6 +50,16 @@ If step 3 answers with a filename but no document, say `show me the document` on
 2. Add the skill: upload `skills/loan-origination/SKILL.md` (or the `.skill` archive your maintainer sends you) under **Customize**, **Skills**.
 3. Start every rehearsal in a new chat inside that project with both connectors enabled under the **+** menu.
 
+**Optional: the Demo Setup card**
+
+The Demo Setup card is a small third connector that shows the four session bindings (Box enterprise ID, Credit Policy Hub ID, Doc Gen template ID, signer email) as a clickable card, the way Amazon Quick does, instead of a typed reply. Your maintainer runs it ([connectors/demo-setup-card](../connectors/demo-setup-card/README.md)); you only connect to it.
+
+1. Ask your maintainer for the card URL. It ends in `/mcp`.
+2. In **Connectors**, **Add custom connector**. Name: `LOS Demo Setup`. URL: the card URL. Leave the OAuth fields blank and click **Connect**.
+3. In a new chat with all three connectors enabled, type `Demo Setup`. The card appears with the defaults. Change any value, then click **Use these for this session**. The confirmation shows up in the chat as your message and the skill caches it.
+
+Without this connector, `Demo Setup` still works: the assistant shows the same four values as a table and you reply "use these defaults" or type replacements.
+
 **If it fails**
 
 - The LOS connector lists fewer than seven tools: it was connected before the newer tools existed. **Disconnect**, then **Connect** again with the same URL.

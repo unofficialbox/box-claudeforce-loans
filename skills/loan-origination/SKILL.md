@@ -13,6 +13,15 @@ This single file contains the complete skill. Execute the workflow through the c
 
 Use only capabilities exposed by the connected tools. If a capability is missing, follow the inline fallback or report the specific missing capability; do not substitute an external script or terminal command. The optional `.skill` archive is simply this file packaged for import, not a runtime dependency.
 
+## Demo Setup (run before the show, on request "Demo Setup")
+
+Four environment bindings are confirmed once per session and cached: Box enterprise ID, Credit Policy Hub ID, Doc Gen commitment-letter template ID, signer email. Loan ID and loan folder ID are never part of Demo Setup; resolve them from `listLoans` and `getLoanPackage` every session.
+
+- **With the LOS Demo Setup connector loaded:** call its `demoSetup` tool once. It renders a card with the four bindings and their defaults. The operator confirms or edits them on the card, and the confirmation arrives as the operator's own message ("Demo Setup confirmed: ..."). Cache those values for the session and do not ask for them again. The card confirms bindings only; it never applies, approves, generates, or sends anything.
+- **Without the connector:** present the same four bindings as one Markdown table with their defaults (from the environment configuration, or blank) and ask for one reply: "use these defaults" or replacement values. Cache the reply.
+- If the operator skips Demo Setup, resolve each binding under the CRITICAL rules below the first time a beat needs it.
+- Never offer decision cards or option lists whose choices apply terms, approve documents, generate documents, or send for signature. The only next step you offer is the next beat prompt in a code block.
+
 ## Answer style
 
 **Format:**
@@ -43,8 +52,8 @@ Use only capabilities exposed by the connected tools. If a capability is missing
 
 **CRITICAL:**
 - Metadata template key is STATIC. Use `template="losDocument"` directly. NEVER call `list_metadata_templates` or `get_metadata_template_schema`.
-- Resolve the Doc Gen template from `LOS_Box_Config__c.Commitment_Letter_Template_ID__c` when a connected tool can read it, or use the user-confirmed template for this environment. If neither is available, make one bounded `list_docgen_templates` discovery call and identify the exact `los-commitment-letter-template.docx` candidate. An unambiguous match may be used for this demo after inspecting its tags; it does not prove the Salesforce configuration. If absent, truncated, or ambiguous, ask for the configured ID. Cache only within the confirmed environment/session.
-- Use the confirmed Credit Policy Hub ID for this environment as `<POLICY_HUB_ID>`. Obtain it from the environment configuration or the presenter once; cache it for this session. NEVER call `list_hubs` or guess the value.
+- Resolve the Doc Gen template from the Demo Setup confirmation for this session when there is one, else from `LOS_Box_Config__c.Commitment_Letter_Template_ID__c` when a connected tool can read it, or use the user-confirmed template for this environment. If neither is available, make one bounded `list_docgen_templates` discovery call and identify the exact `los-commitment-letter-template.docx` candidate. An unambiguous match may be used for this demo after inspecting its tags; it does not prove the Salesforce configuration. If absent, truncated, or ambiguous, ask for the configured ID. Cache only within the confirmed environment/session.
+- Use the confirmed Credit Policy Hub ID for this environment as `<POLICY_HUB_ID>`. Obtain it from Demo Setup, the environment configuration, or the presenter once; cache it for this session. NEVER call `list_hubs` or guess the value.
 - NEVER list folder contents. Use metadata queries with folder scope to find files.
 - Use Box AI on file IDs for source-document analysis. For Doc Gen verification, inspect template tags and the exact generated output with an available content-reading or preview tool; this is a narrow exception to avoiding file-content reads.
 

@@ -427,6 +427,21 @@ def check_react_script(script: str, root: Path = ROOT) -> str:
     return workspace.relative_to(root).as_posix()
 
 
+CARD = ROOT / "connectors" / "demo-setup-card"
+
+
+def check_card_script(script: str, root: Path = ROOT) -> str:
+    """Build or test the Demo Setup card connector (an MCP Apps server) when its node_modules exist."""
+    workspace = root / CARD.relative_to(ROOT)
+    if not (workspace / "node_modules").is_dir():
+        raise ValidationError(f"{workspace.relative_to(root)} is missing node_modules; run npm ci")
+    package = json.loads((workspace / "package.json").read_text(encoding="utf-8"))
+    if script not in package.get("scripts", {}):
+        raise ValidationError(f"Demo Setup card workspace does not define npm run {script}")
+    run_command(["npm", "run", script], cwd=workspace)
+    return workspace.relative_to(root).as_posix()
+
+
 def execute(name: str, action: Callable[[], str]) -> Result:
     start = time.monotonic()
     try:
@@ -502,6 +517,8 @@ def validate(*, skip_react: bool, skip_playwright: bool, presenter_ready: bool, 
             ("React unit tests", lambda: check_react_script("test", root)),
             ("React lint", lambda: check_react_script("lint", root)),
             ("React build", lambda: check_react_script("build", root)),
+            ("Demo Setup card tests", lambda: check_card_script("test", root)),
+            ("Demo Setup card build", lambda: check_card_script("build", root)),
         ])
         if not skip_playwright:
             rows.append(("Playwright", lambda: check_react_script("test:e2e", root)))
@@ -526,7 +543,7 @@ def print_matrix(results: list[Result]) -> None:
 def parser() -> argparse.ArgumentParser:
     result = argparse.ArgumentParser(description=__doc__)
     result.add_argument("--presenter-ready", action="store_true", help="Require current live validation receipts for every platform")
-    result.add_argument("--skip-react", action="store_true", help="Skip React unit, lint, build, and Playwright checks")
+    result.add_argument("--skip-react", action="store_true", help="Skip the Node checks: React unit, lint, build, Playwright, and the Demo Setup card")
     result.add_argument("--skip-playwright", action="store_true", help="Run React unit, lint, and build without browser E2E")
     result.add_argument("--root", type=Path, default=ROOT, help=argparse.SUPPRESS)
     return result

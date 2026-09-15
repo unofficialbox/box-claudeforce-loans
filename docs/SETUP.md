@@ -171,6 +171,7 @@ Complete each item for every new environment. Record IDs only in the gitignored 
 - Store credentials only in managed connections or protected secret stores.
 - Review the metadata `seed-metadata` applied; the portfolio search and the Copilot read it.
 - Mark the four Word files as Doc Gen templates and record the commitment-letter template id in `LOS_Box_Config__c.Commitment_Letter_Template_ID__c`; `LosGenerateCommitmentLetter` refuses until it is set.
+- Register `los-commitment-letter-salesforce-template.docx` on the Salesforce **Box Doc Gen Templates** tab against `LOS_Loan__c` and add the `box:dgRecordPage` action to the loan layout ([docs/DOCGEN-GUIDE.md](DOCGEN-GUIDE.md#salesforce-managed-package-template)); preview it against `LN-2026-0042` before presenting.
 - Build the **Acme Credit Policy Library** Hub from `Credit Policies` and record its id in `Credit_Policy_Hub_Id__c`; publishing it needs owner approval.
 - Record the loans root folder id in `Loans_Root_Folder_Id__c`; without it `LosPortfolioSearch` queries the whole enterprise.
 - Create an API-only integration user with `LOS_Box_Automate_Integration` and nothing broader (`los-salesforce-project/scripts/configure-los-oauth.sh <alias>` with `LOS_INTEGRATION_USERNAME` and `LOS_INTEGRATION_EMAIL` set), and an External Client App with client credentials, `api` scope, admin preauthorization and that user as Run As. Keep the consumer secret in the Box-managed OAuth connection.

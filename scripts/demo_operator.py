@@ -75,6 +75,7 @@ FILE_BINDINGS = {
     "appraisal": "harborview-appraisal-2026.pdf",
     "insurance": "harborview-insurance-certificate.pdf",
     "docgenCommitmentLetter": "los-commitment-letter-template.docx",
+    "docgenCommitmentLetterSalesforce": "los-commitment-letter-salesforce-template.docx",
 }
 PORTABLE_SPECS = [
     "config/box/automate-workflows.bcl",
@@ -95,6 +96,7 @@ UPLOADS = {
     ],
     "08 - DocGen Templates": [
         "output/docgen/los-commitment-letter-template.docx",
+        "output/docgen/los-commitment-letter-salesforce-template.docx",
     ],
     "Credit Policies": [
         "sample-data/policies/README.md",
