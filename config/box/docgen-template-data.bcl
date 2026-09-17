@@ -27,7 +27,7 @@ locals {
               "collateral" = "First-priority mortgage on 1200 Harbor Way; appraised value $5,650,000; personal property excluded"
               "covenants" = "LTV not to exceed 80%; DSCR not less than 1.15x tested quarterly on trailing-twelve-month NOI"
               "currency" = "$"
-              "guaranty" = "Unlimited personal guaranties from Jordan Pike and Renata Voss; additional guaranty from Harborview Logistics"
+              "guaranty" = "Unlimited personal guaranties from Dana Whitfield and Renata Voss; additional guaranty from Harborview Logistics"
               "interestRate" = "6.85% fixed"
               "loanAmount" = 4520000
               "maturityDate" = "2036-11-30"
@@ -84,7 +84,7 @@ locals {
             "recipient" = {
               "company" = "Harborview Logistics"
               "email" = "kadams@boxdemo.com"
-              "name" = "Jordan Pike"
+              "name" = "Dana Whitfield"
               "title" = "Chief Financial Officer"
             }
             "sender" = {

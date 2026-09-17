@@ -192,7 +192,7 @@ def build_loan_application():
                 ["Borrowing entity", BORROWER_2026],
                 ["Parent / operating company", "Harborview Logistics (Transportation and third-party logistics)"],
                 ["Principal place of business", "48 Pier Road, Everett, Massachusetts 02149"],
-                ["Primary contact", "Jordan Pike, Chief Financial Officer, jordan.pike@harborviewlogistics.example"],
+                ["Primary contact", "Dana Whitfield, Chief Financial Officer, dana.whitfield@harborviewlogistics.example"],
                 ["Years in operation", "14"],
                 ["Existing relationship", "Revolving line of credit (2023) and equipment term loan (2025), both current"],
             ],
@@ -219,7 +219,7 @@ def build_loan_application():
         table(
             [
                 ["Owner", "Ownership", "Guaranty offered"],
-                ["Jordan Pike", "35%", "Personal guaranty"],
+                ["Dana Whitfield", "35%", "Personal guaranty"],
                 ["Renata Voss", "35%", "Personal guaranty"],
                 ["Harborview Employee Holdings LP", "30%", "None proposed"],
             ],
@@ -245,7 +245,7 @@ def build_loan_application():
         p(
             "The undersigned certifies that the information in this application is true and complete "
             "and authorizes the Bank to obtain credit reports, appraisals, and other information "
-            "required to evaluate the request. Signed: /s/ Jordan Pike, Chief Financial Officer, "
+            "required to evaluate the request. Signed: /s/ Dana Whitfield, Chief Financial Officer, "
             "July 8, 2026."
         ),
         Spacer(1, 0.2 * inch),
@@ -350,7 +350,7 @@ def build_term_sheet_markup():
           "general liability, and flood insurance naming the Bank as mortgagee and loss payee."),
         section("6. GUARANTY"),
         p("6.1 Unlimited personal guaranty from each owner of twenty percent or more of the Borrower."),
-        markup("Borrower proposes a limited guaranty from Jordan Pike and Renata Voss capped at $1,000,000 each, "
+        markup("Borrower proposes a limited guaranty from Dana Whitfield and Renata Voss capped at $1,000,000 each, "
                "and no guaranty from Harborview Employee Holdings LP."),
         section("7. CONDITIONS PRECEDENT"),
         p("Satisfactory appraisal, title insurance, survey, Phase I environmental site assessment, evidence of "
@@ -498,7 +498,7 @@ def build_tax_return_summary():
         table(
             [
                 ["Shareholder", "Ownership", "Pro rata share of ordinary income"],
-                ["Jordan Pike", "35%", "$246,750"],
+                ["Dana Whitfield", "35%", "$246,750"],
                 ["Renata Voss", "35%", "$246,750"],
                 ["Harborview Employee Holdings LP", "30%", "$211,500"],
             ],
@@ -741,7 +741,7 @@ def build_executed_loan_agreement(
             "Schedule 1.</i>"
         ),
         section("1. PARTIES"),
-        p(f"Lender: {BANK}. Borrower: {borrower}. Guarantors: Jordan Pike and Renata Voss, jointly and severally, "
+        p(f"Lender: {BANK}. Borrower: {borrower}. Guarantors: Dana Whitfield and Renata Voss, jointly and severally, "
           "under unlimited personal guaranties."),
         section("2. LOAN AMOUNT AND PURPOSE"),
         p(f"2.1 {facility} in the principal amount of {amount} (the <b>Loan</b>)."),
@@ -805,8 +805,8 @@ def build_executed_loan_agreement(
         table(
             [
                 ["ACME BANK", borrower.upper()],
-                ["By: /s/ Priya Shah", "By: /s/ Jordan Pike"],
-                ["Name: Priya Shah", "Name: Jordan Pike"],
+                ["By: /s/ Priya Shah", "By: /s/ Dana Whitfield"],
+                ["Name: Priya Shah", "Name: Dana Whitfield"],
                 ["Title: Chief Credit Officer", "Title: Chief Financial Officer"],
                 [f"Date: {signed_on}", f"Date: {signed_on}"],
             ],
@@ -941,8 +941,8 @@ def write_json():
             "name": "Harborview Logistics Distribution Facility Loan 2026",
             "borrower": "Harborview Logistics",
             "borrowerEntity": BORROWER_2026,
-            "applicantName": "Jordan Pike",
-            "applicantEmail": "jordan.pike@harborviewlogistics.example",
+            "applicantName": "Dana Whitfield",
+            "applicantEmail": "dana.whitfield@harborviewlogistics.example",
             "loanType": "Commercial Real Estate",
             "status": "Underwriting",
             "loanAmount": 4800000,
